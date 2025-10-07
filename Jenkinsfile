@@ -48,6 +48,8 @@ echo %DOCKER_PASSWORD% | docker login -u %DOCKER_USERNAME% --password-stdin
             @echo off
             docker stop node-web node-mongo-db || exit /b 0
             docker rm node-web node-mongo-db || exit /b 0
+            """
+            bat """
             set BUILD_NUMBER=%BUILD_NUMBER%
             docker-compose up -d --force-recreate
           """
